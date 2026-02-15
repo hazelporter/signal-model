@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curvature — Digestion</title>
+  <link rel="stylesheet" href="../shared/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <div>
+        <strong>Curvature</strong> <span class="pill">Digestion</span>
+      </div>
+      <div class="controls">
+        <label>Pressure</label>
+        <input id="pressure" type="range" min="0" max="100" value="45" />
+        <span id="pval" class="pill">45</span>
+        <a class="link" href="../">Home</a>
+      </div>
+    </div>
+
+    <section class="model stack">
+      <div class="band">MAP <small>meaning / language</small></div>
+      <div class="stage">
+        <div class="label map">MAP</div>
+        <div class="label terrain">TERRAIN</div>
+
+        <div class="channel" id="channel">
+          <div class="particle" id="dot"></div>
+        </div>
+      </div>
+      <div class="note">
+        Curvature = slowed translation. The middle widens; signal lingers and becomes representable.
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
