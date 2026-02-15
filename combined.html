@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Signal Models — Combined</title>
+  <link rel="stylesheet" href="./shared/style.css" />
+  <style>
+    .tabs { display:flex; gap:10px; flex-wrap:wrap; margin: 14px 0; }
+    .tabs button{
+      cursor:pointer; padding:10px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.03);
+      color: rgba(233,238,245,.9);
+    }
+    .tabs button.active{ border-color: rgba(255,255,255,.32); }
+    .frameWrap{
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 16px; overflow:hidden; background: rgba(255,255,255,.02);
+      height: 560px;
+    }
+    iframe{ width:100%; height:100%; border:0; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <div><strong>Terrain–Map Signal Models</strong> <span class="pill">Combined</span></div>
+      <div><a class="link" href="./">Home</a></div>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button data-src="./corridor/" class="active">Corridor</button>
+      <button data-src="./curvature/">Curvature</button>
+      <button data-src="./thicket/">Thicket</button>
+    </div>
+
+    <div class="frameWrap">
+      <iframe id="modelFrame" src="./corridor/" loading="lazy"></iframe>
+    </div>
+
+    <p class="foot">This page hosts each model without changing their code.</p>
+  </main>
+
+  <script>
+    const tabs = document.getElementById("tabs");
+    const frame = document.getElementById("modelFrame");
+
+    tabs.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-src]");
+      if (!btn) return;
+      [...tabs.querySelectorAll("button")].forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      frame.src = btn.dataset.src;
+    });
+  </script>
+</body>
+</html>
